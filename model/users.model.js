@@ -12,7 +12,11 @@ export const Users = db.define('users', {
   },
   user_id: {
     type: DataTypes.CHAR(12),
-    allowNull: false,
+    allowNull: true,
+  },
+  password: {
+    type: DataTypes.CHAR(30),
+    allowNull:true
   },
   project_user_type: {
     type: DataTypes.CHAR(8),
@@ -20,7 +24,11 @@ export const Users = db.define('users', {
   },
   name: {
     type: DataTypes.CHAR(50),
-    allowNull: false
+    allowNull: true
+  },
+  department:{
+    type: DataTypes.CHAR(10),
+    allowNull:true
   },
   fathers_name:{
     type:DataTypes.CHAR(50),
@@ -28,123 +36,122 @@ export const Users = db.define('users', {
   },
   mothers_name:{
     type:DataTypes.CHAR(50),
-    allowNull: false
+    allowNull: true
 
   },
   date_of_birth:{
     type:DataTypes.DATE,
-    allowNull: false
-
+    allowNull: true
   },
   nid:{
     type:DataTypes.INTEGER(20),
-    allowNull: false
+    allowNull: true
   },
   passport:{
     type:DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
 
   },
   phone_no:{
     type:DataTypes.CHAR(20),
-    allowNull: false
+    allowNull: true
   },
   email:{
     type:DataTypes.CHAR(30),
-    allowNull: false
+    allowNull: true
   },
   joining_date:{
     type:DataTypes.DATE,
-    allowNull: false
+    allowNull: true
   },
   blood_group:{
     type:DataTypes.CHAR(4),
-    allowNull: false
+    allowNull: true
   },
   sex:{
     type:DataTypes.CHAR(7),
-    allowNull: false
+    allowNull: true
   },
   religion:{
     type:DataTypes.CHAR(15),
-    allowNull: false
+    allowNull: true
   },
   company_name:{
     type:DataTypes.CHAR
   },
   maritial_status:{
     type:DataTypes.CHAR(10),
-    allowNull: false
+    allowNull: true
 
   },
   husband_name:{
     type:DataTypes.CHAR(50),
-    allowNull: false
+    allowNull: true
   },
   wife_name:{
     type:DataTypes.CHAR(50),
-    allowNull: false
+    allowNull: true
 
   },
   emergency_contact1:{
     type:DataTypes.CHAR(12),
-    allowNull: false
+    allowNull: true
 
   },
   emergency_contact2:{
     type:DataTypes.CHAR(12),
-    allowNull: false
+    allowNull: true
   },
   emergency_contact3:{
     type:DataTypes.CHAR(12),
-    allowNull: false
+    allowNull: true
 
   },
   present_add:{
     type:DataTypes.CHAR(100),
-    allowNull: false
+    allowNull: true
   },
   permanent_add:{
     type:DataTypes.CHAR(100),
-    allowNull: false
+    allowNull: true
 
   },
   education:{
     type:DataTypes.CHAR,
-    allowNull: false
+    allowNull: true
   },
   employment_history:{
     type:DataTypes.CHAR,
-    allowNull: false
+    allowNull: true
 
   },
   present_sallery:{
     type:DataTypes.INTEGER(7),
-    allowNull: false
+    allowNull: true
 
   },
   bank_account_no:{
     type:DataTypes.INTEGER(15),
-    allowNull: false
+    allowNull: true
 
   },
   bank_name:{
     type:DataTypes.CHAR(30),
-    allowNull: false
+    allowNull: true
   },
   branch:{
     type:DataTypes.CHAR(30),
-    allowNull: false
+    allowNull: true
 
   },
   routing_number:{
     type:DataTypes.CHAR(20),
-    allowNull: false
+    allowNull: true
 
   },
   tin_no:{
     type:DataTypes.CHAR(20),
-    allowNull: false
+    allowNull: true
 
   },
   designation: {
@@ -157,17 +164,17 @@ export const Users = db.define('users', {
   },
   type: {
     type:DataTypes.CHAR(10),
-    allowNull:false
+    allowNull:true
   }
 }, {
   freezeTableName: true,
   timestamps : false
 });
 // Sync the models with the database using the 'alter' option
-// db.sync({ alter: true })
-//   .then(() => {
-//     console.log('Database synchronized successfully with model definitions.');
-//   })
-//   .catch((error) => {
-//     console.error('Error synchronizing the database:', error);
-//   });
+db.sync({ alter: true })
+  .then(() => {
+    console.log('Database synchronized successfully with model definitions.');
+  })
+  .catch((error) => {
+    console.error('Error synchronizing the database:', error);
+  });

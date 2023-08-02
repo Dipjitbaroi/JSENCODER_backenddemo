@@ -178,4 +178,4 @@ export const portfolio = db.define('portfolio', {
 // export (home);
 
 // export default home_container;
-// db.sync({alter:true});
+db.sync({alter:true});
